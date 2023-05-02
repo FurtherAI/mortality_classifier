@@ -1,0 +1,21 @@
+# Not fit to entire data set, score is on training set
+# Best Score: 0.8759239427863588
+
+# Best Hyperparameters: {'verbosity': 0, 
+# 'validate_parameters': True, 
+# 'use_label_encoder': False, 
+# 'tree_method': 'gpu_hist', 
+# 'subsample': 0.7, 
+# 'scale_pos_weight': 1, 
+# 'sampling_method': 'gradient_based',
+# 'objective': 'binary:logistic', 
+# 'n_estimators': 400, 
+# 'max_leaves': 3, 
+# 'max_depth': 4, 
+# 'max_bins': 256, 
+# 'learning_rate': 0.1, 
+# 'lambda': 0, 
+# 'grow_policy': 'lossguide', 
+# 'gamma': 1, 
+# 'enable_categorical': True, 
+# 'alpha': 1}
