@@ -4,7 +4,7 @@ from xgboost import XGBClassifier
 from sklearn.model_selection import KFold, cross_val_score, train_test_split
 from sklearn.model_selection import GridSearchCV
 
-x = pd.read_csv('processed_train_x.csv')
+x = pd.read_csv('processed_train_x_v2.csv')
 y = pd.read_csv('train_y.csv')
 
 x.drop(columns=['Unnamed: 0', 'patientunitstayid'], inplace=True)
@@ -36,6 +36,7 @@ params = {
     'validate_parameters': True,
     'enable_categorical': True,
     'eval_metric': ['auc'],
+    'use_label_encoder': False,
 }         
            
 # instantiate the classifier 
