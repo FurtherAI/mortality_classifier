@@ -142,11 +142,13 @@ def preprocess():
     fix_age(x)
     x['nursingchartvalue'] = x['nursingchartvalue'].apply(lambda z : np.nan if type(z) == str else z).astype(float)
 
-    y = pd.read_csv('train_y.csv')
-    y.drop(columns=['Unnamed: 0'], inplace=True)
+    patient_ids = x['patientunitstayid'].unique()
+    patient_ids.sort()
 
     chart_types = x['nursingchartcelltypevalname']
     chart_types = list(chart_types[~chart_types.isna()].unique())
+    chart_types.sort()
+    print(chart_types)
 
     lab_types = ['pH', 'glucose']
 
@@ -172,7 +174,7 @@ def preprocess():
     processed_cols += ['patientunitstayid']
     processed_df = pd.DataFrame(columns=processed_cols)
 
-    for id in y['patientunitstayid']:
+    for id in patient_ids:
         process_patient(x, id, processed_df, chart_types, lab_types, replacement_vals)
 
     return processed_df
